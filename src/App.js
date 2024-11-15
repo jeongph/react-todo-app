@@ -3,9 +3,7 @@ import "./App.css";
 
 export default class App extends Component {
   state = {
-    todoData: [
-
-    ],
+    todoData: [],
     value: "",
   }
 
@@ -27,23 +25,23 @@ export default class App extends Component {
   }
 
   handleClick = (id) => {
-    let newTodoData = this.state.todoData.filter(data => data.id !== id)
-    console.log('newTodoData', newTodoData)
-    this.setState({ todoData: newTodoData })
+    let newTodoData = this.state.todoData.filter(data => data.id !== id);
+    console.log('newTodoData', newTodoData);
+    this.setState({ todoData: newTodoData });
   }
 
   handleChange = (e) => {
-    this.setState({ value: e.target.value })
+    this.setState({ value: e.target.value });
   }
 
   handleSubmit = (e) => {
     e.preventDefault(); // 페이지 새로고침 막기 
 
     let newTodo = {
-      id: Date.now,
+      id: Date.now(),
       title: this.state.value,
-      completed: false
-    }
+      completed: false,
+    };
 
     // 새로운 할일 리스트에 더해주기 
     this.setState({ todoData: [...this.state.todoData, newTodo], value: "" })
