@@ -26,11 +26,11 @@ export default function List({todoData, setTodoData}) {
 
         if (!result.destination) return;
 
-        const newTodoData = [...todoData];
+        const newTodoData = Array.from(todoData);
 
         const [reorderedItem] = newTodoData.splice(result.source.index, 1);
 
-        newTodoData.slice(result.destination.index, 0, reorderedItem);
+        newTodoData.splice(result.destination.index, 0, reorderedItem);
         setTodoData(newTodoData);
     }
 
