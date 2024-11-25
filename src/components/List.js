@@ -51,7 +51,7 @@ export default function List({todoData, setTodoData}) {
                                              {...provided.draggableProps}
                                              ref={provided.innerRef}
                                              {...provided.dragHandleProps}
-                                             className={`${snapshot.isDragging ? "bg-gray-100" : "bg-gray-100"} flex items-center justify-between px-4 py-1 my-2 text-gray-600 border rounded`}>
+                                             className={`${snapshot.isDragging ? "bg-gray-400" : "bg-gray-100"} flex items-center justify-between px-4 py-1 my-2 text-gray-600 border rounded`}>
                                             <div>
                                                 <input
                                                     type="checkbox"
