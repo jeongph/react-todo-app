@@ -21,10 +21,23 @@ export default function List({todoData, setTodoData}) {
         setTodoData(newTodoData);
     }
 
+    const handleEnd = (result) => {
+        console.log('result', result);
+
+        if (!result.destination) return;
+
+        const newTodoData = [...todoData];
+
+        const [reorderedItem] = newTodoData.splice(result.source.index, 1);
+
+        newTodoData.slice(result.destination.index, 0, reorderedItem);
+        setTodoData(newTodoData);
+    }
+
     return (
         <div>
-            <DragDropContext>
-                <Droppable droppableId="to-dos">
+            <DragDropContext onDragEnd={handleEnd}>
+                <Droppable droppableId="todo">
                     {(provided) => (
                         <div {...provided.droppableProps} ref={provided.innerRef}>
                             {todoData.map((data, index) => (
