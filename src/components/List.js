@@ -1,6 +1,7 @@
 import React from "react";
 
 const List = ({id, title, completed, todoData, setTodoData, provided, snapshot}) => {
+    console.log("List Component");
 
     const handleCompleChange = (id) => {
         let newTodoData = todoData.map((data) => {

@@ -3,6 +3,7 @@ import {DragDropContext, Draggable, Droppable} from "react-beautiful-dnd";
 import List from "./List";
 
 export default function Lists({todoData, setTodoData}) {
+    console.log("Lists Component");
 
     const handleEnd = (result) => {
         console.log('result', result);
