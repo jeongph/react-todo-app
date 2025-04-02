@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useCallback} from "react";
 import "./App.css";
 import Lists from "./components/Lists";
 import Form from "./components/Form";
@@ -8,6 +8,13 @@ export default function App() {
 
     const [todoData, setTodoData] = useState([]);
     const [value, setValue] = useState("");
+
+    const handleClick = (id) => {
+        let newTodoData = todoData.filter(data => data.id !== id);
+        console.log('newTodoData', newTodoData);
+        // this.setState({ todoData: newTodoData });
+        setTodoData(newTodoData);
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault(); // 페이지 새로고침 막기
@@ -31,7 +38,7 @@ export default function App() {
                     <h1>할 일 목록</h1>
                 </div>
 
-                <Lists todoData={todoData} setTodoData={setTodoData}/>
+                <Lists handleClick={handleClick} todoData={todoData} setTodoData={setTodoData}/>
 
                 <Form handleSubmit={handleSubmit} value={value} setValue={setValue}/>
 
