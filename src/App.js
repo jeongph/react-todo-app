@@ -9,12 +9,12 @@ export default function App() {
     const [todoData, setTodoData] = useState([]);
     const [value, setValue] = useState("");
 
-    const handleClick = (id) => {
+    const handleClick = useCallback((id) => {
         let newTodoData = todoData.filter(data => data.id !== id);
         console.log('newTodoData', newTodoData);
         // this.setState({ todoData: newTodoData });
         setTodoData(newTodoData);
-    }
+    }, [todoData]);
 
     const handleSubmit = (e) => {
         e.preventDefault(); // 페이지 새로고침 막기
