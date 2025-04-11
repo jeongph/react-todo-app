@@ -86,10 +86,10 @@ const List = React.memo(({
                     <input
                         type="checkbox"
                         onChange={() => handleCompleChange(id)}
-                        defaultChecked={false}
+                        defaultChecked={completed}
                     />{" "}
                     <span
-                        className={completed ? "line-through" : undefined}>{title}</span>
+                        className={completed ? "line-through text-gray-400" : undefined}>{title}</span>
                 </div>
                 <div className={"items-center"}>
                     <button className={"px-4 py-2 float-right"} onClick={() => handleClick(id)}>
